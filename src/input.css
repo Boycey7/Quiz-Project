@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Two fonts one for header and one for body */
+.custom-font-1 {
+    font-family: 'Crimson Text', serif;
+}
+
+.custom-font-2 {
+    font-family: 'EB Garamond', serif;
+}
