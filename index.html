@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Project</title>
-    <link href="./dist/output.css" rel="stylesheet" />
+    <link href="/dist/output.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
@@ -25,34 +25,64 @@
         .quiz-question {
             font-size: 24px;
         }
+        
+        .beveled-edge {
+
+         box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .custom-bg-color {
+        background-color: #d9c28c; /* Your custom color here */
+        }
+
+        .custom-bg-color2 {
+        background-color: #9f7e49; /* Your new custom color here */
+        }
     </style>
 </head>
 <body>
-    <div class="grid grid-cols-1">
-        <h1 class="quiz-title custom-font-1">
+    <div class="flex items-center justify-center ">
+        <div class="p-20 rounded-lg shadow-xl custom-bg-color2">
+    <!-- Start Quiz  -->
+    <div id="startQuizPrompt" class="flex flex-col items-center justify-center">
+        <h2 class="text-3xl text-white custom-font-2">Do you want to start the quiz?</h2>
+        <button id="startButton" class="px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1">Start</button>
+    </div>
+
+    <div id="quizQuestions" class="hidden">
+        <h1 class="grid grid-cols-1 text-white quiz-title custom-font-1">
             Quiz Project - Lord of The Rings
         </h1>
-        <p class="quiz-question custom-font-2">
+        <p class="grid grid-cols-1 text-white quiz-question custom-font-2">
             What is the answer
         </p>
+        <div class="p-4 border-2 border-[#f4d681]  beveled-edge custom-bg-color">
         <div class="grid grid-cols-2 gap-4 ">
-            <div class="py-2 px-2 text-sm font-medium text-center rounded-lg bg-yellow-500 hover:cursor-pointer custom-font-2">
+            <div class="px-2 py-2 text-sm font-medium text-center border border-black rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
                 Answer 1
             </div>
-            <div class="py-2 px-2 text-sm font-medium text-center rounded-lg bg-yellow-500 hover:cursor-pointer custom-font-2">
+            <div class="px-2 py-2 text-sm font-medium text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
                 Answer 2
             </div>
-            <div class="py-2 px-2 text-sm font-medium text-center rounded-lg bg-yellow-500 hover:cursor-pointer custom-font-2">
+            <div class="px-2 py-2 text-sm font-medium text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
                 Answer 3
             </div>
-            <div class="py-2 px-2 text-sm font-medium text-center rounded-lg bg-yellow-500 hover:cursor-pointer custom-font-2">
+            <div class="px-2 py-2 text-sm font-medium text-center rounded-tl custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
                 Answer 4
             </div>
         </div>
     </div>
+</div>
     <script>
 // Javascript code here
+        const startQuizPrompt = document.getElementById("startQuizPrompt");
+        const startButton = document.getElementById("startButton");
+        const quizQuestions = document.getElementById("quizQuestions");
 
+        startButton.addEventListener("click", function () {
+            startQuizPrompt.classList.add("hidden");
+            quizQuestions.classList.remove("hidden");
+        });
     </script>
 </body>
 </html>
