@@ -18,17 +18,17 @@
         }
 
         .quiz-title {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
         }
 
         .quiz-question {
-            font-size: 24px;
+            font-size: 30px;
         }
         
         .beveled-edge {
 
-         box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(255, 255, 255, 0.2);
+         box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.2), 2px 2px 5px rgba(255, 255, 255, 0.2);
         }
 
         .custom-bg-color {
@@ -41,38 +41,47 @@
     </style>
 </head>
 <body>
-    <div class="flex items-center justify-center ">
-        <div class="p-20 rounded-lg shadow-xl custom-bg-color2">
+    <div class="flex items-center justify-center">
+        <div class="p-10 rounded-lg shadow-xl md:p-20 custom-bg-color2">
     <!-- Start Quiz  -->
     <div id="startQuizPrompt" class="flex flex-col items-center justify-center">
         <h2 class="text-3xl text-white custom-font-2">Do you want to start the quiz?</h2>
         <button id="startButton" class="px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1">Start</button>
     </div>
-
+     <!-- Quiz title -->
     <div id="quizQuestions" class="hidden">
-        <h1 class="grid grid-cols-1 text-white quiz-title custom-font-1">
-            Quiz Project - Lord of The Rings
+        <h1 class="grid grid-cols-1 text-center text-white quiz-title custom-font-1">
+            Lord of The Rings Quiz
         </h1>
-        <p class="grid grid-cols-1 text-white quiz-question custom-font-2">
-            What is the answer
+        <!-- Question 1 -->
+        <p class="grid grid-cols-1 text-center text-white quiz-question custom-font-2">
+            Question 1: Can you name this Lord of the Rings character?
         </p>
-        <div class="p-4 border-2 border-[#f4d681]  beveled-edge custom-bg-color">
-        <div class="grid grid-cols-2 gap-4 ">
-            <div class="px-2 py-2 text-sm font-medium text-center border border-black rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
-                Answer 1
+        <!-- Name that character image -->
+        <div class="mb-4">
+            <img src="character_1.png" alt="Character 1" class="mx-auto">
+        </div>
+        <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2" style="background-image: url('character_1.png');"></div>
+        <div class="p-3 border-2 border-[#f4d681] beveled-edge custom-bg-color relative">
+            <div class="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-40" style="background-image: url('background_button_fantasy.jpg');"></div>
+                    <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <!-- Anwsers -->
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
+                Gandalf
             </div>
-            <div class="px-2 py-2 text-sm font-medium text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
-                Answer 2
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
+                Legolas
             </div>
-            <div class="px-2 py-2 text-sm font-medium text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
-                Answer 3
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
+                Grimoald
             </div>
-            <div class="px-2 py-2 text-sm font-medium text-center rounded-tl custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2">
-                Answer 4
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
+                Gandolf
             </div>
         </div>
     </div>
 </div>
+
     <script>
 // Javascript code here
         const startQuizPrompt = document.getElementById("startQuizPrompt");
@@ -83,6 +92,15 @@
             startQuizPrompt.classList.add("hidden");
             quizQuestions.classList.remove("hidden");
         });
+
+        function checkAnswer(answerElement) {
+            const selectedAnswer = answerElement.innerText;
+            if (selectedAnswer === "Gandalf") {
+                alert("Correct! Gandalf is the right answer.");
+            } else {
+                alert("That is not the correct anwser");
+            }
+        }
     </script>
 </body>
 </html>
