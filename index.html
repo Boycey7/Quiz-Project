@@ -19,12 +19,12 @@
         }
 
         .quiz-title {
-            font-size: 32px;
+            font-size: 50px;
             font-weight: bold;
         }
 
-        .quiz-question {
-            font-size: 30px;
+        .quiz-question-size {
+            font-size: 35px;
         }
         
         .beveled-edge {
@@ -44,64 +44,268 @@
 <body>
     <div class="flex items-center justify-center">
         <div class="p-10 rounded-lg shadow-xl md:p-20 custom-bg-color2">
-    <!-- Start Quiz  -->
-    <div id="startQuizPrompt" class="flex flex-col items-center justify-center">
-        <h2 class="text-3xl text-white custom-font-2">Do you want to start the quiz?</h2>
-        <button id="startButton" class="px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1">Start</button>
-    </div>
-     <!-- Quiz title -->
-    <div id="quizQuestions" class="hidden">
-        <h1 class="grid grid-cols-1 text-center text-white quiz-title custom-font-1">
-            Lord of The Rings Quiz
-        </h1>
-        <!-- Question 1 -->
-        <p class="grid grid-cols-1 text-center text-white quiz-question custom-font-2">
-            Question 1: Can you name this Lord of the Rings character?
-        </p>
+            <div id="quizContent">
+                <div id="startQuizPrompt" class="flex flex-col items-center justify-center">
+                    <h2 class="text-3xl text-white custom-font-2">Do you want to start the quiz? Press Start:</h2>
+                    <button id="startButton" class="px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="startQuiz()">Start</button>
+                </div>
+
+                <div id="quizQuestions" class="hidden">
+                    <h1 class="grid grid-cols-1 text-center text-white quiz-title custom-font-1">
+                        Lord of The Rings Quiz
+                    </h1>
+
+                    <!-- Question 1 -->
+                    <div id="question1" class="hidden question">
+                        <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                            Question 1: Can you name this Lord of the Rings character?
+                        </p>
+
+                        <!-- Name that character image -->
+                        <div class="mb-4">
+                            <img src="character_1.png" alt="Character 1" class="mx-auto">
+                        </div>
+
+                        <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gandalf', 1)">Gandalf</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Legolas', 1)">Legolas</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Grimoald', 1)">Grimoald</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gandolf', 1)">Gandolf</div>
+                            <button id="tryAgain1" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(1)">Try Again</button>
+                            <div id="result1" class="text-center text-white custom-font-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="question2" class="hidden question">
+                        <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                            Question 2: Can you name this Lord of the Rings character?
+                        </p>
+
+                        <!-- Name that character image -->
+                        <div class="mb-4">
+                            <img src="character_2.png" alt="Character 2" class="mx-auto">
+                        </div>
+
+                        <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gollum', 2)">Gollum</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Golums', 2)">Golum</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Golem', 2)">Golem</div>
+                            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gandolf', 2)">Gandolf</div>
+                            <button id="tryAgain2" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(2)">Try Again</button>
+                            <div id="result2" class="text-center text-white custom-font-2"></div>
+                        </div>
+                    </div>
+
+                <!-- Question 3 -->
+                <div id="question3" class="hidden question">
+                <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                     Question 2: Can you name this Lord of the Rings character?
+                    </p>
+                    <!-- Name that character image -->
+                    <div class="mb-4"> 
+                        <img src="character_3.png" alt="Character 3" class="mx-auto">
+                    </div>
+
+                    <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Pippin', 3)">Pippin</div>
+                        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Frodo', 3)">Frodo</div>
+                        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Sam Wise', 3)">Sam Wise</div>
+                        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Merry', 3)">Merry</div>
+                        <button id="tryAgain3" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(3)">Try Again</button>
+                        <div id="result3" class="text-center text-white custom-font-2"></div>
+                    </div>
+                </div>
+                   
+                <!-- Question 4 -->
+                   <div id="question4" class="hidden question">
+                    <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                         Question 2: Can you name this Lord of the Rings character?
+                        </p>
+
+                <!-- Name that character image -->
+                <div class="mb-4">
+                    <img src="character_4.png" alt="Character 4" class="mx-auto">
+                </div>
+
+                <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Legolas', 4)">Legolas</div>
+                    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Eddard Stark', 4)">Eddard Stark</div>
+                    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Aragorn', 4)">Aragorn</div>
+                    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Boromir', 4)">Boromir</div>
+                    <button id="tryAgain4" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(4)">Try Again</button>
+                    <div id="result4" class="text-center text-white custom-font-2"></div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div id="question5" class="hidden question">
+                <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                     Question 2: Can you name this Lord of the Rings character?
+                    </p>
+
+            <!-- Name that character image -->
+            <div class="mb-4">
+                <img src="character_5.png" alt="Character 5" class="mx-auto">
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Aragorn', 5)">Aragorn</div>
+                <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gimli', 5)">Gimli</div>
+                <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Thorin', 5)">Thorin</div>
+                <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gandolf', 5)">Gandolf</div>
+                <button id="tryAgain5" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(5)">Try Again</button>
+                <div id="result5" class="text-center text-white custom-font-2"></div>
+            </div>
+        </div>
+
+
+        <!-- Question 6 -->
+        <div id="question6" class="hidden question">
+            <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+                 Question 2: Can you name this Lord of the Rings character?
+                </p>
+
         <!-- Name that character image -->
         <div class="mb-4">
-            <img src="character_1.png" alt="Character 1" class="mx-auto">
+            <img src="character_6.png" alt="Character 6" class="mx-auto">
         </div>
-        <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2" style="background-image: url('character_1.png');"></div>
-        <div class="p-3 border-2 border-[#f4d681] beveled-edge custom-bg-color relative">
-            <div class="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-40" style="background-image: url('background_button_fantasy.jpg');"></div>
-                    <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <!-- Anwsers -->
-            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
-                Gandalf
-            </div>
-            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
-                Legolas
-            </div>
-            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
-                Grimoald
-            </div>
-            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer(this)">
-                Gandolf
-            </div>
+
+        <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Mikey', 6)">Mikey</div>
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Samwise', 6)">Samwise</div>
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Bob', 6)">Bob</div>
+            <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Pippin', 6)">Pippin</div>
+            <button id="tryAgain6" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(6)">Try Again</button>
+            <div id="result6" class="text-center text-white custom-font-2"></div>
         </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div id="question7" class="hidden question">
+        <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+             Question 2: Can you name this Lord of the Rings character?
+            </p>
+
+    <!-- Name that character image -->
+    <div class="mb-4">
+        <img src="character_7.png" alt="Character 7" class="mx-auto">
+    </div>
+
+    <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gloin', 7)">Gloin</div>
+        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Galadriel', 7)">Galadriel</div>
+        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Thorin', 7)">Thorin</div>
+        <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gimli', 7)">Gimli</div>
+        <button id="tryAgain7" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(7)">Try Again</button>
+        <div id="result7" class="text-center text-white custom-font-2"></div>
     </div>
 </div>
 
+    <!-- Question 8 -->
+    <div id="question8" class="hidden question">
+    <p class="grid grid-cols-1 text-center text-white quiz-question-size custom-font-2">
+         Question 2: Can you name this Lord of the Rings character?
+        </p>
+
+    <!-- Name that character image -->
+    <div class="mb-4">
+    <img src="character_8.png" alt="Character 8" class="mx-auto">
+    </div>
+
+    <div class="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Legolus', 8)">Legolus</div>
+    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Aragorn', 8)">Aragorn</div>
+    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Legolas', 8)">Legolas</div>
+    <div class="px-12 py-3 text-xl text-center rounded-lg custom-bg-color beveled-edge hover:cursor-pointer hover:bg-yellow-100 custom-font-2" onclick="checkAnswer('Gandolf', 8)">Gandolf</div>
+    <button id="tryAgain8" class="hidden px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuestion(8)">Try Again</button>
+    <div id="result8" class="text-center text-white custom-font-2"></div>
+    </div>
+</div>
+                    
+
+                    <!-- Result -->
+                    <div id="quizResult" class="hidden">
+                        <h2 class="text-3xl text-white custom-font-2" id="quizResultText"></h2>
+                        <button class="px-4 py-2 mt-4 border border-black beveled-edge custom-bg-color hover:bg-yellow-100 custom-font-1" onclick="resetQuiz()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
 // Javascript code here
-        const startQuizPrompt = document.getElementById("startQuizPrompt");
-        const startButton = document.getElementById("startButton");
-        const quizQuestions = document.getElementById("quizQuestions");
+let currentQuestion = 0;
 
-        startButton.addEventListener("click", function () {
-            startQuizPrompt.classList.add("hidden");
-            quizQuestions.classList.remove("hidden");
-        });
+const questions = document.querySelectorAll('.question');
 
-        function checkAnswer(answerElement) {
-            const selectedAnswer = answerElement.innerText;
-            if (selectedAnswer === "Gandalf") {
-                alert("Correct! Gandalf is the right answer.");
-            } else {
-                alert("That is not the correct anwser");
-            }
-        }
+function startQuiz() {
+    document.getElementById('startQuizPrompt').classList.add('hidden');
+    document.getElementById('quizQuestions').classList.remove('hidden');
+    document.getElementById('question1').classList.remove('hidden');
+    showNextQuestion();
+}
+
+function showNextQuestion() {
+    if (currentQuestion > 0) {
+        questions[currentQuestion - 1].classList.add('hidden');
+    }
+
+    if (currentQuestion < questions.length) {
+        questions[currentQuestion].classList.remove('hidden');
+    } else {
+        document.getElementById('quizResult').classList.remove('hidden');
+    }
+}
+
+function checkAnswer(selectedAnswer, questionNumber) {
+    let correctAnswer;
+
+  if (questionNumber === 1) {
+        correctAnswer = 'Gandalf';
+    } else if (questionNumber === 2) {
+        correctAnswer = 'Gollum';
+    } else if (questionNumber === 3) {
+        correctAnswer = 'Frodo';
+    } else if (questionNumber === 4) {
+        correctAnswer = 'Boromir';
+    } else if (questionNumber === 5) {
+        correctAnswer = 'Aragorn';
+    } else if (questionNumber === 6) {
+        correctAnswer = 'Samwise';
+    } else if (questionNumber === 7) {
+        correctAnswer = 'Gimli';
+    } else if (questionNumber === 8) {
+        correctAnswer = 'Legolas';
+    }
+
+    const resultText = selectedAnswer === correctAnswer ? 'Correct! Answers' : 'Wrong answer';
+    document.getElementById(`result${questionNumber}`).innerText = resultText;
+
+    if (selectedAnswer !== correctAnswer) {
+        document.getElementById(`tryAgain${questionNumber}`).classList.remove('hidden');
+        return;
+    }
+
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        showNextQuestion();
+    }
+}
+
+function resetQuestion(questionNumber) {
+    document.getElementById(`tryAgain${questionNumber}`).classList.add('hidden');
+    document.getElementById(`result${questionNumber}`).innerText = '';
+}
+
+function resetQuiz() {
+    currentQuestion = 0;
+    questions.forEach(question => question.classList.add('hidden'));
+    document.getElementById('quizResult').classList.add('hidden');
+    document.getElementById('startQuizPrompt').classList.remove('hidden');
+}
     </script>
 </body>
 </html>
